@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "518093739736",
+    "firebase_url": "https://encomenda247.firebaseio.com",
+    "project_id": "encomenda247",
+    "storage_bucket": "encomenda247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518093739736:android:88017f29975f226915a9ad",
+        "android_client_info": {
+          "package_name": "mz.co.encomenda247"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518093739736-p5onb6dubqi3qsm9k60l52q10mdsjb9h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mz.co.encomenda247",
+            "certificate_hash": "ab1c332017fa824d883466896bde6740549d3783"
+          }
+        },
+        {
+          "client_id": "518093739736-jc3bb89hrgv851m26bfsd2eoedkusde5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmBQK6-XSg8caXuy6_6YqQHliMp-pT5nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518093739736-jc3bb89hrgv851m26bfsd2eoedkusde5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
