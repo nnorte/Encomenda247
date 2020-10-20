@@ -53,21 +53,18 @@ public class VerificarNumeroActivity extends AppCompatActivity {
     }
 
     private void verficacar(String contacto) {
-
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+258" + contacto,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 TaskExecutors.MAIN_THREAD,               // Activity (for callback binding)
                 mCallbacks);        // OnVerificationStateChangedCallbacks
-
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =  new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
-
             codeDeVerificacaoAutomatica = s;
         }
 
@@ -79,38 +76,27 @@ public class VerificarNumeroActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 verificarCode(code);
             }
-
         }
-
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
             Toast.makeText(VerificarNumeroActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     };
-
     private void verificarCode(String codeManual) {
-
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeDeVerificacaoAutomatica, codeManual);
         logar(credential);
     }
-
     private void logar(PhoneAuthCredential credential) {
-
         FirebaseAuth auth  = FirebaseAuth.getInstance();
         auth.signInWithCredential(credential).addOnCompleteListener(VerificarNumeroActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 if (task.isSuccessful()){
 
-
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CadastroActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
-
-
                  //CRIAR METOD PATA CADATRO DE DADOS PESSOAIS
-
                 }else{
                     Toast.makeText(VerificarNumeroActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }

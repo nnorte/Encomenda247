@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class AuthenticacaoActivity extends AppCompatActivity {
 
-    EditText tv_contacto;
+    EditText tv_contacto, nome, apelido;
     Button btn_confirmar;
 
     @Override
@@ -28,13 +28,11 @@ public class AuthenticacaoActivity extends AppCompatActivity {
        btn_confirmar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
                if (tv_contacto.getText().toString().isEmpty()){
-                   Toast.makeText(AuthenticacaoActivity.this, "Digite seu contacto", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(AuthenticacaoActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                }else if (tv_contacto.getText().toString().replace("", "").length() != 9){
                    Toast.makeText(AuthenticacaoActivity.this, "Digite um numero valido", Toast.LENGTH_SHORT).show();
                }else{
-
                  Intent intent = new Intent(getApplicationContext(), VerificarNumeroActivity.class);
                  intent.putExtra("contacto",tv_contacto.getText().toString());
                  startActivity(intent);
